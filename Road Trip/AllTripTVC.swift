@@ -9,7 +9,14 @@
 import UIKit
 
 class AllTripTVC: UITableViewController {
-
+	
+	weak var delegate: AllTripVCDelegate?
+	
+	
+	@IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
+		delegate?.cancelButtonPressedDown(by: self)
+	}
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,7 +26,7 @@ class AllTripTVC: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-
+	
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -36,6 +43,10 @@ class AllTripTVC: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return 0
     }
+	
+		override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+			
+		}
 
 
 

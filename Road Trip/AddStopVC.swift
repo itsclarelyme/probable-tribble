@@ -9,6 +9,15 @@
 import UIKit
 
 class AddStopVC: UIViewController {
+	@IBOutlet weak var stopName: UITextField!
+	@IBOutlet weak var stopDesc: UITextField!
+	@IBOutlet weak var startEndTrip: UIButton!
+	
+	@IBAction func ManuallyAddStopPressed(_ sender: UIButton) {
+	}
+	
+	@IBAction func StartEndTripPressed(_ sender: UIButton) {
+	}
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -96,7 +96,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="NbC-u1-6um">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dFf-9Q-MQC"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dFf-9Q-MQC">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="GNt-3W-ZFc" id="iM7-fB-URt"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Wkd-rl-7ar">
                             <connections>
                                 <segue destination="H0b-mu-DOn" kind="presentation" id="AUk-fe-Sz8"/>
@@ -222,81 +226,6 @@
             </objects>
             <point key="canvasLocation" x="3128.8000000000002" y="82.3088455772114"/>
         </scene>
-        <!--Trip SummaryVC-->
-        <scene sceneID="L1j-rK-aaI">
-            <objects>
-                <viewController id="tic-mg-ve3" customClass="TripSummaryVC" customModule="Road_Trip" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="MVe-Li-A1R"/>
-                        <viewControllerLayoutGuide type="bottom" id="jLr-2Y-VzN"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="2VK-tI-3yf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="G25-as-kxT">
-                                <rect key="frame" x="16" y="300" width="343" height="367"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="StopCell" rowHeight="65" id="lRx-9C-590">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="65"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lRx-9C-590" id="PQJ-cz-SVT">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="64"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Stop Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DTC-MY-YWS">
-                                                    <rect key="frame" x="20" y="22" width="86" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <sections/>
-                            </tableView>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Fja-HK-4Ja">
-                                <rect key="frame" x="46" y="95" width="283" height="180"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="180" id="YdG-7r-4p1"/>
-                                </constraints>
-                            </mapView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trip Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EE5-7a-ztJ">
-                                <rect key="frame" x="46" y="45" width="283" height="30"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="riS-Mr-TSI"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="0.4014727058" green="0.57919406890000003" blue="0.32402059719999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="Fja-HK-4Ja" secondAttribute="trailing" constant="30" id="7JQ-hx-4ip"/>
-                            <constraint firstItem="EE5-7a-ztJ" firstAttribute="top" secondItem="MVe-Li-A1R" secondAttribute="bottom" constant="25" id="Fq6-uN-Kjt"/>
-                            <constraint firstItem="EE5-7a-ztJ" firstAttribute="leading" secondItem="2VK-tI-3yf" secondAttribute="leadingMargin" constant="30" id="I0L-wy-VF6"/>
-                            <constraint firstItem="Fja-HK-4Ja" firstAttribute="top" secondItem="EE5-7a-ztJ" secondAttribute="bottom" constant="20" id="LcA-eL-upG"/>
-                            <constraint firstItem="G25-as-kxT" firstAttribute="top" secondItem="Fja-HK-4Ja" secondAttribute="bottom" constant="25" id="UZb-gO-WOX"/>
-                            <constraint firstItem="G25-as-kxT" firstAttribute="leading" secondItem="2VK-tI-3yf" secondAttribute="leadingMargin" id="YGv-SG-q0l"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="G25-as-kxT" secondAttribute="trailing" id="cZ0-z4-OJp"/>
-                            <constraint firstItem="Fja-HK-4Ja" firstAttribute="leading" secondItem="2VK-tI-3yf" secondAttribute="leadingMargin" constant="30" id="fsn-4Y-c4S"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="EE5-7a-ztJ" secondAttribute="trailing" constant="30" id="ldg-3G-ba2"/>
-                            <constraint firstItem="jLr-2Y-VzN" firstAttribute="top" secondItem="G25-as-kxT" secondAttribute="bottom" id="rNs-qI-qLI"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="cfv-vC-bOg">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Ehf-eh-ybs"/>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9tA-bb-Oa3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4068" y="82.3088455772114"/>
-        </scene>
         <!--Stop Details View Controller-->
         <scene sceneID="LT0-Jo-Omq">
             <objects>
@@ -407,11 +336,17 @@
                                 <rect key="frame" x="91" y="612" width="193" height="30"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="StartEndTripPressed:" destination="H0b-mu-DOn" eventType="touchUpInside" id="Yrr-JW-apg"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6WJ-kg-2mw">
                                 <rect key="frame" x="91" y="333" width="193" height="30"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Manually Add Stop"/>
+                                <connections>
+                                    <action selector="ManuallyAddStopPressed:" destination="H0b-mu-DOn" eventType="touchUpInside" id="0ky-qO-xxF"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.4014727058" green="0.57919406890000003" blue="0.32402059719999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -433,6 +368,11 @@
                             <constraint firstItem="Crq-b9-jUF" firstAttribute="top" secondItem="2Xq-oD-LbX" secondAttribute="bottom" constant="20" id="u8P-nm-9fa"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="startEndTrip" destination="idO-q2-prC" id="Qzg-vI-7x5"/>
+                        <outlet property="stopDesc" destination="mQQ-22-bQZ" id="Pz9-Ml-Z5z"/>
+                        <outlet property="stopName" destination="ba9-K6-tSe" id="SJi-if-G3m"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pk2-C6-PsK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
