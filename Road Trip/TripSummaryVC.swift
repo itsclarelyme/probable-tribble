@@ -9,7 +9,13 @@
 import UIKit
 
 class TripSummaryVC: UIViewController {
-
+	
+	weak var delegate: tripSummaryVCDelegate?
+	
+	@IBAction func backButtonWasPressed(_ sender: UIBarButtonItem) {
+		delegate?.backButtonPressed(by: self)
+	}
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 

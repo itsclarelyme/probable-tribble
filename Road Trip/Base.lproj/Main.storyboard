@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXv-8Q-5zV">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXv-8Q-5zV">
                                 <rect key="frame" x="91" y="412" width="193" height="45"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -74,20 +74,10 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cjC-eA-eM1" id="nHR-HG-drg">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1e-8T-wa9">
-                                            <rect key="frame" x="43" y="8" width="42" height="27.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="b1e-8T-wa9" firstAttribute="top" secondItem="nHR-HG-drg" secondAttribute="topMargin" id="arF-ho-Pu3"/>
-                                        <constraint firstItem="b1e-8T-wa9" firstAttribute="leading" secondItem="nHR-HG-drg" secondAttribute="leadingMargin" constant="35" id="evb-ve-J3H"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="b1e-8T-wa9" secondAttribute="bottom" id="lD8-TB-zwx"/>
-                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="2fA-Q3-ned" kind="presentation" id="KJ3-Bc-1gr"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -96,14 +86,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="NbC-u1-6um">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dFf-9Q-MQC">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="dFf-9Q-MQC">
                             <connections>
                                 <action selector="cancelButtonPressed:" destination="GNt-3W-ZFc" id="iM7-fB-URt"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Wkd-rl-7ar">
-                            <connections>
-                                <segue destination="H0b-mu-DOn" kind="presentation" id="AUk-fe-Sz8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -112,10 +97,10 @@
             </objects>
             <point key="canvasLocation" x="2020" y="122.78860569715144"/>
         </scene>
-        <!--Trip SummaryTVC-->
+        <!--Trip SummaryVC-->
         <scene sceneID="Njh-TA-px1">
             <objects>
-                <viewController id="ASc-Th-kqK" customClass="TripSummaryTVC" customModule="Road_Trip" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ASc-Th-kqK" customClass="TripSummaryVC" customModule="Road_Trip" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6uH-wt-uHu"/>
                         <viewControllerLayoutGuide type="bottom" id="wej-Qy-dzk"/>
@@ -128,21 +113,12 @@
                                 <rect key="frame" x="16" y="344" width="343" height="323"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="65" id="ptB-ix-Y1N">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="65" id="ptB-ix-Y1N" userLabel="Cell">
                                         <rect key="frame" x="0.0" y="28" width="343" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ptB-ix-Y1N" id="duZ-BM-rPZ">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Stop Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0HM-wX-JrK">
-                                                    <rect key="frame" x="20" y="22" width="86" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -180,7 +156,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HEE-Mr-4za">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="kSz-2c-Qda"/>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="kSz-2c-Qda">
+                            <connections>
+                                <action selector="backButtonWasPressed:" destination="ASc-Th-kqK" id="O8X-yi-iWP"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="qsL-G6-96Y" kind="presentation" id="1PS-ix-91c"/>
@@ -398,7 +378,4 @@
             <point key="canvasLocation" x="4068" y="789.35532233883066"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="DfH-Gd-jh2"/>
-    </inferredMetricsTieBreakers>
 </document>

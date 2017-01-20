@@ -11,13 +11,22 @@ import UIKit
 class InitialViewController: UIViewController, AllTripVCDelegate {
 
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+<<<<<<< HEAD
         let button: UIButton = (sender as? UIButton)!
         if button.tag == 2 {
             let navigationController = segue.destination as! UINavigationController
             let controller = navigationController.topViewController as! AllTripTVC
             controller.delegate = self
         }
+=======
+		let button: UIButton = (sender as? UIButton)!
+		if button.tag == 2 {
+			let navigationController = segue.destination as! UINavigationController
+			let controller = navigationController.topViewController as! AllTripTVC
+			controller.delegate = self
+>>>>>>> 51432002960c1d98de2d4d62c5fc1c38be789418
 		}
+	}
 	
 	
 	func cancelButtonPressedDown(by controller: UITableViewController) {
