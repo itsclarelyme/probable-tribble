@@ -9,6 +9,10 @@
 import UIKit
 
 class AddStopVC: UIViewController {
+	
+	weak var delegate: EndTripDelegate?
+	
+	
 	@IBOutlet weak var stopName: UITextField!
 	@IBOutlet weak var stopDesc: UITextField!
 	@IBOutlet weak var startEndTrip: UIButton!
@@ -17,6 +21,7 @@ class AddStopVC: UIViewController {
 	}
 	
 	@IBAction func StartEndTripPressed(_ sender: UIButton) {
+		delegate?.endButtonPressed(by: self)
 	}
 
     override func viewDidLoad() {
