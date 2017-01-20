@@ -11,7 +11,6 @@
 		F190508C1E316DA10009BD5F /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F190508B1E316DA10009BD5F /* InitialViewController.swift */; };
 		F190508F1E316DA10009BD5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F190508D1E316DA10009BD5F /* Main.storyboard */; };
 		F19050921E316DA10009BD5F /* Road_Trip.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F19050901E316DA10009BD5F /* Road_Trip.xcdatamodeld */; };
-		F19050941E316DA10009BD5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F19050931E316DA10009BD5F /* Assets.xcassets */; };
 		F19050971E316DA10009BD5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F19050951E316DA10009BD5F /* LaunchScreen.storyboard */; };
 		F19050A21E316DA10009BD5F /* Road_TripTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19050A11E316DA10009BD5F /* Road_TripTests.swift */; };
 		F19050AD1E316DA10009BD5F /* Road_TripUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19050AC1E316DA10009BD5F /* Road_TripUITests.swift */; };
@@ -23,6 +22,7 @@
 		F19050C81E3197BF0009BD5F /* allTripVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19050C71E3197BF0009BD5F /* allTripVCDelegate.swift */; };
 		F19050CA1E31A27F0009BD5F /* TripSummaryVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19050C91E31A27F0009BD5F /* TripSummaryVCDelegate.swift */; };
 		F19050CE1E31E9600009BD5F /* StopDetailsViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19050CD1E31E9600009BD5F /* StopDetailsViewControllerDelegate.swift */; };
+		F1AF2B511E32BE01002C49C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1AF2B501E32BE01002C49C5 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +48,6 @@
 		F190508B1E316DA10009BD5F /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		F190508E1E316DA10009BD5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F19050911E316DA10009BD5F /* Road_Trip.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Road_Trip.xcdatamodel; sourceTree = "<group>"; };
-		F19050931E316DA10009BD5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F19050961E316DA10009BD5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F19050981E316DA10009BD5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F190509D1E316DA10009BD5F /* Road TripTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Road TripTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +64,7 @@
 		F19050C71E3197BF0009BD5F /* allTripVCDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = allTripVCDelegate.swift; path = ../allTripVCDelegate.swift; sourceTree = "<group>"; };
 		F19050C91E31A27F0009BD5F /* TripSummaryVCDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TripSummaryVCDelegate.swift; path = ../TripSummaryVCDelegate.swift; sourceTree = "<group>"; };
 		F19050CD1E31E9600009BD5F /* StopDetailsViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopDetailsViewControllerDelegate.swift; sourceTree = "<group>"; };
+		F1AF2B501E32BE01002C49C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../../../../.Trash/Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,10 +123,10 @@
 				F19050891E316DA10009BD5F /* AppDelegate.swift */,
 				F190508B1E316DA10009BD5F /* InitialViewController.swift */,
 				F190508D1E316DA10009BD5F /* Main.storyboard */,
+				F1AF2B501E32BE01002C49C5 /* Assets.xcassets */,
 				F19050C31E317EEE0009BD5F /* AddStopVC.swift */,
 				F19050C11E317EBE0009BD5F /* TripSummaryVC.swift */,
 				F19050BF1E317E770009BD5F /* AllTripTVC.swift */,
-				F19050931E316DA10009BD5F /* Assets.xcassets */,
 				F19050951E316DA10009BD5F /* LaunchScreen.storyboard */,
 				F19050981E316DA10009BD5F /* Info.plist */,
 				F19050901E316DA10009BD5F /* Road_Trip.xcdatamodeld */,
@@ -280,7 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F19050971E316DA10009BD5F /* LaunchScreen.storyboard in Resources */,
-				F19050941E316DA10009BD5F /* Assets.xcassets in Resources */,
+				F1AF2B511E32BE01002C49C5 /* Assets.xcassets in Resources */,
 				F190508F1E316DA10009BD5F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
