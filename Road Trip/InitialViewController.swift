@@ -11,9 +11,12 @@ import UIKit
 class InitialViewController: UIViewController, AllTripVCDelegate {
 
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		let navigationController = segue.destination as! UINavigationController
-		let controller = navigationController.topViewController as! AllTripTVC
-		controller.delegate = self
+        let button: UIButton = (sender as? UIButton)!
+        if button.tag == 2 {
+            let navigationController = segue.destination as! UINavigationController
+            let controller = navigationController.topViewController as! AllTripTVC
+            controller.delegate = self
+        }
 		}
 	
 	
