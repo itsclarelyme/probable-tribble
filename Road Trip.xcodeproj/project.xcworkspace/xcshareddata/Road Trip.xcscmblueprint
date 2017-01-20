@@ -1,0 +1,29 @@
+{
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "4AF858531F1FE15B22AC1BFA9FAD58D640D8E6CF" : 9223372036854775807,
+    "B351CC9570A2AC798E6B5489472B8B492626D37B" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "028CB5F1-0F6E-4E1D-B548-B613CE0C6233",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "4AF858531F1FE15B22AC1BFA9FAD58D640D8E6CF" : "",
+    "B351CC9570A2AC798E6B5489472B8B492626D37B" : "..\/.."
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Road Trip",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Road Trip.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/jportega87\/ioshackathon2.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4AF858531F1FE15B22AC1BFA9FAD58D640D8E6CF"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/jportega87\/origin.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B351CC9570A2AC798E6B5489472B8B492626D37B"
+    }
+  ]
+}
