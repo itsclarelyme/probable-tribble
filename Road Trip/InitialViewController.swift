@@ -8,25 +8,12 @@
 
 import UIKit
 
-class InitialViewController: UIViewController, AllTripVCDelegate, EndTripDelegate {
+class InitialViewController: UIViewController, AllTripVCDelegate {
 
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-		let button: UIButton = (sender as? UIButton)!
-		if button.tag == 2 {
 			let navigationController = segue.destination as! UINavigationController
 			let controller = navigationController.topViewController as! AllTripTVC
 			controller.delegate = self
-
-		} else {
-			let navigationController = segue.destination
-			let controller = navigationController as! AddStopVC
-			controller.delegate = self
-		}
-	}
-	
-	func endButtonPressed(by controller: UIViewController) {
-		dismiss(animated: true, completion: nil)
 	}
 	
 	func cancelButtonPressedDown(by controller: UITableViewController) {

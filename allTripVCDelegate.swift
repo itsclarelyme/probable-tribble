@@ -11,3 +11,7 @@ import UIKit
 protocol AllTripVCDelegate: class {
 	func cancelButtonPressedDown(by controller: UITableViewController)
 }
+
+protocol EndTripDelegate: class {
+	func endButtonPressed(by controller: AddStopVC)
+}

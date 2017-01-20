@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AllTripTVC: UITableViewController, tripSummaryVCDelegate {
+class AllTripTVC: UITableViewController, tripSummaryVCDelegate, EndTripDelegate {
 	
 	weak var delegate: AllTripVCDelegate?
 	
@@ -23,9 +23,20 @@ class AllTripTVC: UITableViewController, tripSummaryVCDelegate {
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		let navigationController = segue.destination as! UINavigationController
-		let controller = navigationController.topViewController as! TripSummaryVC 
-		controller.delegate = self
+		if ((sender as? UITableViewCell) != nil){
+			let navigationController = segue.destination as! UINavigationController
+			let controller = navigationController.topViewController as! TripSummaryVC
+			controller.delegate = self
+		}
+		else {
+			let navigationController = segue.destination as! AddStopVC
+			let controller = navigationController
+			controller.delegate = self
+		}
+	}
+	
+	func endButtonPressed(by controller: AddStopVC) {
+		dismiss(animated: true, completion: nil)
 	}
 	
     override func viewDidLoad() {

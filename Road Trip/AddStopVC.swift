@@ -9,30 +9,87 @@
 import UIKit
 import MapKit
 import CoreLocation
+import CoreData
 
 class AddStopVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 	
-		weak var delegate: EndTripDelegate?
+	weak var delegate: EndTripDelegate?
 
+	@IBOutlet weak var tripName: UILabel!
 	@IBOutlet weak var stopName: UITextField!
 	@IBOutlet weak var stopDesc: UITextField!
 	@IBOutlet weak var startEndTrip: UIButton!
 	@IBOutlet var mapView: MKMapView!
+	var mapImage: UIImage!
     
-	//INITIALIZING MAP MANAGER
+	//INITIALIZING MAP/OBJECT MANAGER
 	let locationManager = CLLocationManager()
-    
+	let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+	
+	
+	//INITIALIZE VARIABLES
+	var stops = [Stop]()
+	var stop_ind = 0
+	var cur_long: Double = 0.0
+	var cur_lad: Double = 0.0
+	var trip: Int16 = 0       //NEED TO UPDATE
 	
 	@IBAction func ManuallyAddStopPressed(_ sender: UIButton) {
+		//let newstop_location
+		stop_ind += 1
+		
+		//CREATE NEW STOP INSTANCE
+		//let newstop = NSEntityDescription.insertNewObject(forEntityName: "Stop", into: managedObjectContext) as! Stop
+		
+		var newstopname = stopName.text
+		if newstopname == ""{
+			newstopname = "Stop #" + String(stop_ind)
+		}
+		
+		var newstopdes = stopDesc.text
+		if newstopdes == "" {
+			newstopdes = "we stopped here!"
+		}
+		let newstoplong = cur_long
+		let newstoplad = cur_lad
+		AddStop(with: newstopname!, Description: newstopdes!, laditude: newstoplad, longitude: newstoplong)
+		addMarker(with: newstopname!, with: newstoplad, with: newstoplong)
+		//newstop.trip = trip
+		//print("this is the stop name: ", newstop)
+		//saveStop()
+		//RESET ALL TEXT FIELD TO NULL
+		stopName.text = ""
+		stopDesc.text = ""
 	}
 	
 	@IBAction func StartEndTripPressed(_ sender: UIButton) {
+		//ADD A STOP
+		locationManager.startUpdatingLocation()
+		AddStop(with: "End Point", Description: "Amazing End to an Amazing Trip!", laditude: cur_lad, longitude: cur_long)
+		//ADD A MARKER
+		addMarker(with: "End Point", with: cur_lad, with: cur_long)
+
+		//SCREENSHOT MAP
+		let options = MKMapSnapshotOptions()
+		options.region = mapView.region
+		options.size = mapView.frame.size
+		options.scale = UIScreen.main.scale
+		
+		let snapshotter = MKMapSnapshotter(options: options)
+		snapshotter.start { snapshot, error in guard let snapshot = snapshot else {
+			print("Snapshot Error: \(error)")
+			return
+			}
+			self.mapImage = snapshot.image
+		}
+			
+		//REDIRECT VC
 		delegate?.endButtonPressed(by: self)
 	}
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+				self.mapView.delegate = self
         // Do any additional setup after loading the view.
         
         //SETUP LOCATION MANAGER
@@ -46,17 +103,62 @@ class AddStopVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate 
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations.last
-        let center = CLLocationCoordinate2D(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
-        self.mapView.setRegion(region, animated: true)
-        self.locationManager.stopUpdatingLocation()
+			let location = locations.last
+			cur_lad = location!.coordinate.latitude
+			cur_long = location!.coordinate.longitude
+			//USE THE LABEL TO SHOW CORD
+			tripName.text = "lad: \(cur_lad), long: \(cur_long)"
+			print("did update location long lad: ", cur_long, cur_lad)
+			if stop_ind == 0 {
+				let start = NSEntityDescription.insertNewObject(forEntityName: "Stop", into: managedObjectContext) as! Stop
+				start.stop_name = "Start"
+				addMarker(with: "Start", with: cur_lad, with: cur_long)
+				stop_ind += 1
+				
+			}
+			let center = CLLocationCoordinate2D(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)
+			let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+			self.mapView.setRegion(region, animated: true)
+			self.locationManager.stopUpdatingLocation()
     }
-    
+	
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Error in location updating and setting map center: ", error.localizedDescription)
     }
-
+	
+	
+	func AddStop(with name: String, Description des: String, laditude lad: Double, longitude long: Double){
+		let newstop = NSEntityDescription.insertNewObject(forEntityName: "Stop", into: managedObjectContext) as! Stop
+		newstop.stop_name = name
+		newstop.stop_des = des
+		newstop.lad = lad
+		newstop.long = long
+		print("we are adding stops: ", newstop)
+		saveStop()
+		
+	}
+	
+	func addMarker(with name: String, with lad: Double, with long: Double){
+		//ADD MARKER FUNCTION
+		let this_loc = CLLocationCoordinate2DMake(lad, long)
+		let this_marker = MKPointAnnotation()
+		this_marker.coordinate = this_loc
+		this_marker.title = name
+		mapView.addAnnotation(this_marker)
+	}
+	
+	//FOR UPDATING DATA AFTER ADDING
+	func saveStop(){
+		if managedObjectContext.hasChanges {
+			do {
+				try managedObjectContext.save()
+				print("Success")
+			} catch {
+				print("\(error)")
+			}
+		}
+	}
+	
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
