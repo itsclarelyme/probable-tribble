@@ -10,12 +10,14 @@ import UIKit
 
 class TripSummaryVC: UITableViewController, StopDetailsViewControllerDelegate {
 	
-	let things = ["Hello"]
+	let things = ["Start", "National Forest", "Tasty Restaurant", "Interesting Landmark"]
+	var tripID: String?
 	
 	weak var delegate: tripSummaryVCDelegate?
 	
 	@IBAction func backButtonWasPressed(_ sender: UIBarButtonItem) {
 		delegate?.backButtonPressed(by: self)
+		dismiss(animated: true, completion: nil)
 	}
 	
 	override func numberOfSections(in tableView: UITableView) -> Int {

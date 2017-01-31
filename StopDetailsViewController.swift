@@ -17,6 +17,7 @@ class StopDetailsViewController: UIViewController,UIImagePickerControllerDelegat
 	
 	@IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
 		deleGate?.backButtonPressed(by: self)
+		dismiss(animated: true, completion: nil)
 	}
 	
 	@IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
